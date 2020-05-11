@@ -69,4 +69,5 @@ Restart the containers:
 ```
 
 ## License
+
 This project is licensed under the GNU GENERAL PUBLIC LICENSE V3 - see the [LICENSE.md](LICENSE.md) file for details

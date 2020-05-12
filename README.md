@@ -1,8 +1,8 @@
 # Laravel-Docker-Boilerplate
 
-> Dockerized laravel & mysql starter project
+> Dockerized Laravel & MySQL starter project
 
-This is a simple dockerized laravel and mysql boilerplate that I use to start developing without needing to worry about setting up docker, nginx etc...
+This is a simple dockerized [Laravel](https://laravel.com/docs/7.x/installation) and MySQL boilerplate that I use to start developing without needing to worry about setting up docker, nginx etc...
 
 ## Getting Started
 
@@ -19,26 +19,24 @@ MYSQL_USER=myuser
 MYSQL_PASSWORD=secret2
 ```
 
-Edit the credentials accordingly
-
-## Bootstrap
-
-Firstly cd into the root of the repository and run:
+Edit the credentials accordingly and then start the containers by running:
 ```docker-compose up --build```
 
-Wait for the build to finish, open another terminal window (or stop the containers with `docker-compose down` and then rerun them in detached mode with `docker-compose up -d`) and run:
+## Creating the Laravel project
+
+In order to create the laravel project open another terminal window (or stop the containers with `docker-compose down` and then rerun them in detached mode with `docker-compose up -d`) and run:
 
 ```bash
 docker-compose exec app bash
 ```
 
-then create the laravel project using
+Now that we're in the `app` container we can create the [Laravel](https://laravel.com/docs/7.x/installation) project:
 
 ```bash
 composer create-project --prefer-dist laravel/laravel your_project_name
 ```
 
-Now change while in the root of the laravel project edit the .env file and change the portion of the file regarding the database:
+Now change while in the root of the [Laravel](https://laravel.com/docs/7.x/installation) project edit the .env file and change the portion of the file regarding the database:
 
 ```bash
 ...

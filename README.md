@@ -1,5 +1,7 @@
 # Laravel-Docker-Boilerplate
 
+> Dockerized laravel & mysql starter project
+
 This is a simple dockerized laravel and mysql boilerplate that I use to start developing without needing to worry about setting up docker, nginx etc...
 
 ## Getting Started
@@ -24,7 +26,7 @@ Edit the credentials accordingly
 Firstly cd into the root of the repository and run:
 ```docker-compose up --build```
 
-Wait for the build to finish, open another terminal window (or stop the containers with ```docker-compose down``` and then rerun them in detached mode with ```docker-compose up -d```) and run:
+Wait for the build to finish, open another terminal window (or stop the containers with `docker-compose down` and then rerun them in detached mode with `docker-compose up -d`) and run:
 
 ```bash
 docker-compose exec app bash
@@ -52,10 +54,9 @@ DB_PASSWORD=secret2
 
 Add the credentials you entered in the first .env file.
 
-At last cd into the root of the project, and go to ``` /config/nginx/conf.d/ ``` and edit the ```app.conf``` file changing the "root" config accordingly:
+At last cd into the root of the project, and go to ` /config/nginx/conf.d/ ` and edit the `app.conf` file changing the `root` config accordingly:
 
 ```bash
-
 ...
     root /var/www/my_project_name/public;
 ...

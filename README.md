@@ -22,7 +22,7 @@ Edit the credentials accordingly
 ## Bootstrap
 
 Firstly cd into the root of the repository and run:
-```bash docker-compose up --build```
+```docker-compose up --build```
 
 Wait for the build to finish, open another terminal window (or stop the containers with ```docker-compose down``` and then rerun them in detached mode with ```docker-compose up -d```) and run:
 
@@ -42,7 +42,7 @@ Now change while in the root of the laravel project edit the .env file and chang
 ...
 
 DB_CONNECTION=mysql
-DB_HOST=database
+DB_HOST=database # don't change this --> it's referring to the mysql container
 DB_PORT=3306
 DB_DATABASE=my_db
 DB_USERNAME=myuser
@@ -67,6 +67,8 @@ Restart the containers:
     docker-compose down -v
     docker-compose up
 ```
+
+Your app will be running at: <http://localhost:82>
 
 ## License
 

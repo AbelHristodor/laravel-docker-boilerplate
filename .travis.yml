@@ -1,0 +1,11 @@
+sudo: required
+services: 
+    - docker
+env:
+    - MYSQL_DATABASE=dk_db
+    - MYSQL_ROOT_PASSWORD=pass1
+    - MYSQL_USER=dk_user
+    - MYSQL_PASSWORD=pass2
+
+scripts:
+    - docker-compose up -build

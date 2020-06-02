@@ -69,6 +69,15 @@ Restart the containers:
 
 Your app will be running at: <http://localhost:82>
 
+## Troubleshooting
+
+If you get an error saying `require('vendor/autoload.php') failed to open stream` you just need to go inside the container
+and install composer again. I'm still trying to fix this.
+So run `docker-compose exec app bash`, `cd app` and then:
+ `curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer`
+
+Finally run `composer install`
+
 ## License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE V3 - see the [LICENSE.md](LICENSE.md) file for details

@@ -22,22 +22,15 @@ MYSQL_PASSWORD=secret2
 Edit the credentials accordingly and then start the containers by running:
 ```docker-compose up --build```
 
-## Creating the Laravel project
+## Configuring the Laravel project
 
-In order to create the laravel project open another terminal window (or stop the containers with `docker-compose down` and then rerun them in detached mode with `docker-compose up -d`) and run:
-
+Now the laravel project has been created, we only need to make set some things up but firstly we need to enter our container's bash console with:
 ```bash
 docker-compose exec app bash
 ```
 
-Now that we're in the `app` container we can create the [Laravel](https://laravel.com/docs/7.x/installation) project:
-
-```bash
-composer create-project --prefer-dist laravel/laravel your_project_name
-```
-
-Now change while in the root of the [Laravel](https://laravel.com/docs/7.x/installation) project edit the .env file and change the portion of the file regarding the database:
-
+Now that we're in the `app` container we can create the .env file using: ```cp .env.example .env``` and then edit it as shown below
+using the credentials we put in the first .env file:
 ```bash
 ...
 
@@ -49,16 +42,12 @@ DB_USERNAME=myuser
 DB_PASSWORD=secret2
 ...
 ```
-
-Add the credentials you entered in the first .env file.
-
-At last cd into the root of the project, and go to ` /config/nginx/conf.d/ ` and edit the `app.conf` file changing the `root` config accordingly:
-
-```bash
-...
-    root /var/www/my_project_name/public;
-...
+Now we need to run ```composer update``` and then set the permissions as so:
 ```
+chmod -R 777 storage && chmod -R 777 bootstrap/cache
+```
+
+Finally we just need to generate the encryption key ```php artisan key:generate```
 
 Restart the containers:
 
@@ -69,14 +58,6 @@ Restart the containers:
 
 Your app will be running at: <http://localhost:82>
 
-## Troubleshooting
-
-If you get an error saying `require('vendor/autoload.php') failed to open stream` you just need to go inside the container
-and install composer again. I'm still trying to fix this.
-So run `docker-compose exec app bash`, `cd app` and then:
- `curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer`
-
-Finally run `composer install`
 
 ## License
 
